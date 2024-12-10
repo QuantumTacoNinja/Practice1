@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            width: 1000px;
+
+            overflow-x: hidden;
+
+            /* background-color: #181818; */
+            /* background-image: linear-gradient(37deg, #E0C894 13%, #F7F1E3); */
+
+            font-family: "Quicksand", sans-serif;
+            
+        }
+
+        html {
+            --s: 82px; /* control the size*/
+            --c1: #050505;
+            --c2: #111111;
+            --c3: #090909;
+            
+            --_g: var(--c3) 0 120deg,#0000 0;
+            background:
+                conic-gradient(from -60deg at 50% calc(100%/3),var(--_g)),
+                conic-gradient(from 120deg at 50% calc(200%/3),var(--_g)),
+                conic-gradient(from  60deg at calc(200%/3),var(--c3) 60deg,var(--c2) 0 120deg,#0000 0),
+                conic-gradient(from 180deg at calc(100%/3),var(--c1) 60deg,var(--_g)),
+                linear-gradient(90deg,var(--c1)   calc(100%/6),var(--c2) 0 50%,
+                                    var(--c1) 0 calc(500%/6),var(--c2) 0);
+            background-size: calc(1.732*var(--s)) var(--s);
+        }
+
+
+        h1, h2, h3, h4, h5, h6, p, a {
+            margin: 2px;
+            line-height: 0.95em;
+        }
+
+        .text {
+            color: #F5EDDC;
+
+            
+            font-size: 2em;
+            font-weight: 400;
+        }
+
+        .text-small {
+            color: #B2653B;
+
+            font-size: 1.25em;
+            font-weight: 700;
+        }
+
+        .text-spc1 {
+            font-family: "Roboto";
+            font-size: 1.5em;
+            font-weight: 700;
+
+
+            background-image: linear-gradient(to right, #9E3221, #F4A62E, #7CB7AD 80%, #9E3221);
+            background-attachment: fixed;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation-duration: 8s;
+            animation-name: animated-gradient;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes animated-gradient {
+            0%{
+                background-position-x: 0px;
+            }
+            50%{
+                background-position-x: 1080px;
+            }
+
+        }
+
+        .svg1 {
+            height: 1.25em;
+            width: 1.25em;
+            scale: 1.25;
+        }
+
+        .svg2 {
+            display: none;
+        }
+
+        .main-frame1 {
+            width: 760px;
+            min-height: 760px;
+            padding: 64px;
+
+            outline: 1px double #B2653B;
+            border-radius: 8px;
+
+            display: flex;
+
+            position: relative;
+            top: 48px;
+            right: 50%;
+            left: 50%;
+            transform: translateX(-50%, -50%);
+
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+            gap: 8px;
+            
+        }
+
+        .top-tag {
+            width: auto;
+            height: auto;
+            gap: 8px;
+            /* outline: 2px double #F5EDDC; */
+
+
+        }
+
+        .rule-brake{
+            width: auto;
+            height: 2px;
+
+            background-image: linear-gradient(37deg, #9E3221, #F4A62E, #7CB7AD 80%, #9E3221);
+            animation-duration: 16s;
+            animation-name: animated-gradient;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .shift-right{
+            position: relative;
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 16px;
+            padding: 8px;
+
+            /* outline: 2px double #F5EDDC; */
+        }
+
+        .menu {
+            position: relative;
+            display: flex;
+            right: 4%;
+            gap: 2px;
+        }
+
+        .menu input {
+            display: none;
+        }
+
+        .tab-name {
+            color: #F5EDDC;
+            
+            font-family: "Quicksand";
+            font-size: 1.25em;
+            font-weight: 400;
+            
+
+            background: rgba(178, 101, 59, 0.3);
+            padding: 4px 12px;
+            box-sizing: border-box;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            outline: 1px solid #B2653B;
+
+            transition: 0.25s;
+        }
+        input:checked + label .tab-name {
+            background-color: #B2653B;
+            color: #181818;
+            size: 0.9em;
+            font-weight: 800;
+        }
+
+        .tab-name2 {
+            outline-color: #9E3221;
+            background-color: rgba(158, 50, 33, 0.3);
+        }
+
+        .tab-name3 {
+            outline-color: #F4A62E;
+            background-color: rgba(244, 166, 46, 0.3);
+        }
+
+        .tab-name4 {
+            outline-color: #7CB7AD;
+            background-color: rgba(124, 183, 173, 0.3);
+        }
+
+        .tab-name5 {
+            outline-color: #F5EDDC;
+            background-color: rgba(245, 237, 220, 0.3);
+        }
+
+        .tab-content {
+            position: absolute;
+            top: 30px;
+            left: 0px;
+
+            width: 668px;
+            height: 520px;
+
+            padding: 16px;
+
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            outline: 1px solid #B2653B; 
+            background: rgba(178, 101, 59, 0.1);
+
+            box-sizing: border-box;
+            
+            color: #F5EDDC;
+            
+            font-family: "Quicksand";
+            font-weight: 400;
+
+            opacity: 0;
+            z-index: 0;
+            transition: 0.25s;
+        }
+        input:checked + label .tab-content {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        #tab2:checked + label {
+            .tab-name2 {
+                outline-color: #9E3221;
+                background-color: #9E3221;
+            }
+
+            .tab-content {
+                outline-color: #9E3221;
+                background-color: rgba(158, 50, 33, 0.1);
+            }
+        }
+
+        #tab3:checked + label {
+            .tab-name3 {
+                outline-color: #F4A62E;
+                background-color: #F4A62E;
+            }
+
+            .tab-content {
+                outline-color: #F4A62E;
+                background-color: rgba(244, 166, 46, 0.1);
+            }
+        }
+
+        #tab4:checked + label {
+            .tab-name4 {
+                outline-color: #7CB7AD;
+                background-color: #7CB7AD;
+            }
+
+            .tab-content {
+                outline-color: #7CB7AD;
+                background-color: rgba(124, 183, 173, 0.1);
+            }
+        }
+
+        #tab5:checked + label {
+            .tab-name5 {
+                outline-color: #F5EDDC;
+                background-color: #F5EDDC;
+                color: #181818;
+            }
+
+            .tab-content {
+                outline-color: #F5EDDC;
+                background-color: rgba(245, 237, 220, 0.1);
+            }
+        }
+
+        .article-text {
+            width: 400px;
+            font-family: "Quicksand";
+        }
+
+        .article-text h1 {
+            font-size: 2em;
+            font-weight: 400;
+        }
+        .article-text p {
+            font-size: 1.25em;
+            font-weight: 400;
+        }
+
+        .tab-contnent1 {
+            padding: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        #portrait {
+            height: 300px;
+            border-radius: 8px;
+            outline: 2px solid #B2653B;
+
+            filter: saturate(70%);
+            filter: brightness(70%);
+            filter: opacity(80%);
+        }
+
+        .gear {
+            position: relative;
+            padding: 0px;
+            margin: 0px;
+
+            width: 200px;
+            height: 160px;
+        }
+
+        .gear img {
+
+            width: 200px;
+            height: 160px;
+            border-radius: 8px;
+            margin: auto;
+            
+            filter: saturate(0);
+            filter: contrast(1);
+
+            background-color: #fff;
+            opacity: 0.9;
+        }
+
+
+        .gear-content {
+            width: 184px;
+            height: 144px;
+            border-radius: 8px;
+            padding: 8px;
+
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.6s;
+
+        }
+
+        .gear-content h1{
+            font-family: "Quicksand";
+            font-size: 2em;
+            font-weight: 400;
+        }
+
+        .gear-content p {
+            font-family: "Quicksand";
+            font-size: 1.25em;
+            font-weight: 400;
+        }
+
+        .gear-content:hover {
+            opacity: 1;
+        }
+
+        .tab-content2 { 
+            font-family: "Quicksand";
+            font-weight: 400;
+            padding: 32px;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab-content2 * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizelegibility;
+            letter-spacing: -0.25px;
+        }
+
+        .tab-content2 ol { padding-left: 50px; }
+        .tab-content2 li { 
+            color: #F5EDDC; 
+            padding-left: 16px;
+            margin-top: 24px;
+            position: relative;
+            font-size: 16px;
+            line-height: 20px;
+        
+            &:before {
+                content: '';
+                display: block;
+                height: 42px;
+                width: 42px;
+                border-radius: 50%;
+                border: 2px solid #ddd;
+                position: absolute;
+                top: -12px;
+                left: -34px;
+            }
+        }
+
+        .tab-content strong { 
+            color: #F5EDDC; 
+            font-size: 1.25em;
+            font-weight: 400;
+        }
+
+        .tab-content2 ol.alternating-colors { 
+            li:nth-child(odd):before { border-color: #F4A62E; }
+            li:nth-child(even):before { border-color: #9E3221; }
+        }
+
+
+        .gif1 {
+            border-radius: 45%;
+            border: 6px solid #F4A62E;
+            outline: 8px double #B2653B;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section class="main-frame1">
+        <div class="top-tag">
+            <p class="text text-spc1">WORAPAT HONGSETONG</p>
+            <p class="text">HYPER-LAZY MATHEMATICS ENJOYER.</p>
+            <p class="text">CURRENTLY ACTIVE IN THAILAND, AND ALSO LOVES CURRY.</p>
+            <P class="text text-small">CYBERSECURITY STUDENT, HARBOUR.SPACE @UTCC</P>
+
+            <br>
+            <div class="rule-brake"></div>
+            <br>
+
+            <div class="shift-right">
+                <a href="" target="_blank"> <!--email-->
+                    <svg class="svg1" stroke="#7CB7AD" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+                <a href="" target="_blank"> <!--github--> 
+                    <svg class="svg1" stroke="#F4A62E" fill="#F4A62E" stroke-width="0" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg>
+                </a>
+                <a href="" target="_blank"> <!--Linkedin-->
+                    <svg class="svg1" stroke="#9E3221" fill="#9E3221" stroke-width="0" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM349.3 793.7H230.6V411.9h118.7v381.8zm-59.3-434a68.8 68.8 0 1 1 68.8-68.8c-.1 38-30.9 68.8-68.8 68.8zm503.7 434H675.1V608c0-44.3-.8-101.2-61.7-101.2-61.7 0-71.2 48.2-71.2 98v188.9H423.7V411.9h113.8v52.2h1.6c15.8-30 54.5-61.7 112.3-61.7 120.2 0 142.3 79.1 142.3 181.9v209.4z"></path></svg>
+                </a>
+            </div>
+        </div>
+
+        <br>
+
+        <section class="menu">
+            <input type="radio" name="option" id="tab1">
+            <label for="tab1">
+                <div class="tab-name tab-name-mother">
+                    About Me
+                    <svg class="svg2" stroke-width="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M319 35.375c-27.305-.247-52.415 19.47-62.063 46.094-9.726-26.856-35.196-46.656-62.78-46.064-15.11.325-30.85 6.764-45 21.532-11.47 11.968-17.863 27.782-24.407 43.75-15 22.49-35.066 39.27-64.156 45.874 7 6.374 14.63 9.69 22.656 11.063-14.192 7.828-33.583 12.154-61.28 10.78 20.528 26.327 52.643 35.282 86.28 34.532 60.716-2.34 91.448-33.326 109.438-64.875l16.218 9.25c-20.387 35.754-59.15 71.513-127.28 74.094-.002.24 0 .48 0 .72 0 6.067 1.32 13.4 3.686 21.686l-.25-.468 29.5 114.875 4.625-38.626c17.095 31.46 37.67 64.792 56.532 93.97l1.624-46.127c5.83 38.514 20.68 73.426 39.062 106.97 9.337 13.507 15.25 21.78 15.25 21.78s6.953-9.693 17.875-25.562c.07-.1.152-.213.22-.313 20.76-32.818 38.056-67.256 46.438-105.906l-1.063 37.438c9.342-14.666 18.923-30.088 28.156-45.656v28.468l40.533-104.125c9.877-21.585 16.512-40.562 17.656-54.342-65.713-7.917-111.206-41.86-132.314-78.875l16.22-9.25c19.702 34.552 66.54 68.93 138.312 71.062 15.085-.3 29.905-3.623 45.593-11.313-14.823.118-27.478-1.08-38.53-3.437 23.34-5.136 43.576-16.795 56.125-37.97-102.54 21.26-90.343-61.02-127.188-99.468-14.37-14.994-30.37-21.424-45.687-21.562z"></path></svg>
+                </div>
+                <div class="tab-content tab-contnent1">
+                    <div class="article-text">
+                        <h1>Hello Visitor!</h1>
+                        <br>
+                        <p>I somehow ended up in cybersecurity studies despite having minimal experience with computers. My journey into the world of technology has been a steep learning curve, but it's been exciting and rewarding as I explore new concepts and develop my skills. I'm passionate about learning and growing in this field, and I approach every new challenge with curiosity and determination.</p>
+                        <br>
+                        <p>I’m deeply passionate about math, especially abstraction and the logical structure it offers. The way mathematics is organized fascinates me, and I enjoy solving complex problems and exploring new theories. This love for structure and organization also translates into my other interests, as I apply similar principles to my work in technology and design.</p>
+                        <br>
+                        <p>In my free time, I focus on expanding my knowledge of both math and computers, constantly striving to learn something new. I also enjoy creative drawing as a way to relax and unwind. While I’m still new to many aspects of the digital world, I’m committed to growing my skills and building a strong foundation for my future in cybersecurity and beyond.</p>
+                    </div>
+                    <img src="./resource/portrait1659x2737.webp" id="portrait" alt="Portrait">
+                </div>
+            </label>
+
+            <input type="radio" name="option" id="tab2">
+            <label for="tab2">
+                <div class="tab-name tab-name2 tab-name-mother" >
+                    Skills & Hobbies
+
+                </div>
+                <div class="tab-content tab-content2">
+                    <ol class="alternating-colors">
+                    <li>
+                        <strong>PYTHON</strong>
+                        <p>A beginner in Python, but capable of creating cool and functional projects with it.</p>
+                    </li>
+                    <li>
+                        <strong>HTML & CSS</strong>
+                        <p>New to HTML and CSS, yet able to build visually appealing web pages and designs.</p>
+                    </li>
+                    <li>
+                        <strong>MATHEMATICS</strong>
+                        <p>A math enthusiast with a strong aptitude for abstract thinking and proof-based problem solving, consistently excelling in the subject.</p>
+                    </li>
+                    <li>
+                        <strong>DESIGN</strong>
+                        <p>Specialized in creating designs that are structured, systematic, and highly organized, ensuring clarity and precision in every project.</p>
+                    </li>
+                    <li>
+                        <strong>CREATIVE DRAWING</strong>
+                        <p>Passionate about drawing in my free time, exploring various creative ideas and artistic techniques.</p>
+                    </li>
+                    </ol>
+                </div>
+            </label>
+
+            <input type="radio" name="option" id="tab3">
+            <label for="tab3">
+                <div class="tab-name tab-name3 tab-name-mother" >
+                    Honors & Awards
+                </div>
+                <div class="tab-content" style="padding-top: 20%; display: flex; flex-wrap: wrap; flex-direction: column; align-items: center; gap: 4px;">
+                    <h1 class="text-spc1" style="padding: 4px; font-family: 'Monoton'; font-weight: 400; font-size: 10em;">WORK</h1>
+                    <div class="rule-brake"></div>
+                    <h1 class="text-spc1" style="padding: 4px; font-family: 'Monoton'; font-weight: 500; font-size: 5em;">IN PROGRESS</h1>
+                </div>
+                </div>
+            </label>
+
+            <input type="radio" name="option" id="tab4">
+            <label for="tab4">
+                <div class="tab-name tab-name4 tab-name-mother" >
+                    Projects
+                </div>
+                <div class="tab-content" style="padding-top: 20%; display: flex; flex-wrap: wrap; flex-direction: column; align-items: center; gap: 4px;">
+                    <h1 class="text-spc1" style="padding: 4px; font-family: 'Monoton'; font-weight: 400; font-size: 10em;">WORK</h1>
+                    <div class="rule-brake"></div>
+                    <h1 class="text-spc1" style="padding: 4px; font-family: 'Monoton'; font-weight: 500; font-size: 5em;">IN PROGRESS</h1>
+                </div>
+            </label>
+
+            <input type="radio" name="option" id="tab5">
+            <label for="tab5">
+                <div class="tab-name tab-name5 tab-name-mother" >
+                    Gaming Gears
+                </div>
+                <div class="tab-content" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <div class="gear">
+                        <img src="./resource/Gears/veikk1560pro.png" alt="mouse1">
+                        <div class="gear-content">
+                            <h1>Mouse/Display</h1>
+                            <br>
+                            <p>veikk 1560pro</p>
+                            <p>pen-display</p>
+                        </div>
+                    </div>
+                    <div class="gear">
+                        <img src="./resource/Gears/gaomonm106kpro.png" alt="mouse2">
+                        <div class="gear-content">
+                            <h1>Mouse</h1>
+                            <br>
+                            <p>gaomon M106k pro</p>
+                            <p>pen-tablet</p>
+                        </div>
+                    </div>
+                    <div class="gear">
+                        <img src="./resource/Gears/fiioq3mqa.png" alt="ampifier" style="filter: invert(1);">
+                        <div class="gear-content">
+                            <h1>Audio Ampifier</h1>
+                            <br>
+                            <p>Fiio Q3 MQA</p>
+                            <p>DAC ampifier</p>
+                        </div>
+                    </div>
+                    <div class="gear">
+                        <img src="./resource/Gears/signoproserieindigo.png" alt="keyboard">
+                        <div class="gear-content">
+                            <h1>Keyboard</h1>
+                            <br>
+                            <p>Signo pro-series Indigo</p>
+                            <p>keyboard</p>
+                        </div>
+                    </div>
+                    <div class="gear">
+                    <img src="./resource/Gears/fantechthoriix16.png" alt="mouse3">
+                        <div class="gear-content">
+                            <h1>Mouse</h1>
+                            <br>
+                            <p>Fantech Thor II X16</p>
+                            <p>mouse</p>
+                        </div>
+                    </div>
+                <div class="gear">
+                    <img src="./resource/Gears/phillipfideliol3.png" alt="headphone">
+                        <div class="gear-content">
+                            <h1>Headphone</h1>
+                            <br>
+                            <p>Phillip Fidelio L3</p>
+                            <p>headphone</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </label>
+
+            <input type="radio" name="option" id="tab6" checked="checked">
+            <label for="tab6">
+                <div class="tab-name tab-name-mother">
+                    <svg id="svg-ex1" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M144 32S94.11 69.4 96 96c1.604 22.57 44.375 25.665 48 48 1.91 11.772-16 32-16 32s48-25.373 48-48-42.8-25.978-48-48c-3.875-16.414 16-48 16-48zm80 0s-49.89 37.4-48 64c1.604 22.57 44.375 25.665 48 48 1.91 11.772-16 32-16 32s48-25.373 48-48-42.8-25.978-48-48c-3.875-16.414 16-48 16-48zm80 0s-49.89 37.4-48 64c1.604 22.57 44.375 25.665 48 48 1.91 11.772-16 32-16 32s48-25.373 48-48-42.8-25.978-48-48c-3.875-16.414 16-48 16-48zM73.293 201c1.43 63.948 18.943 179.432 74.707 238h152c55.764-58.568 73.278-174.052 74.707-238H73.293zm319.598.445c-.186 9.152-.652 19.252-1.472 30.057C419.312 235.162 441 259.142 441 288c0 31.374-25.626 57-57 57-4.387 0-8.656-.517-12.764-1.465-2.912 9.62-6.176 19.165-9.84 28.51C368.602 373.97 376.176 375 384 375c48.155 0 87-38.845 87-87 0-45.153-34.153-82.12-78.11-86.555zM42.763 457c1.507 5.193 3.854 11.2 6.955 16.37 2.637 4.394 5.69 8.207 8.428 10.58C60.882 486.32 63 487 64 487h320c1 0 3.118-.678 5.855-3.05 2.738-2.373 5.79-6.186 8.428-10.58 3.1-5.17 5.448-11.177 6.955-16.37H42.762z"></path></svg>
+                </div>
+                <div class="tab-content" style="display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;">
+                    <img src="https://media3.giphy.com/media/9nxr8jrDxwPMdYYorw/giphy.gif?cid=6c09b952wy0zbh5o8ld2emoo859gh9vi5p0ufeli2444cli3&ep=v1_gifs_search&rid=giphy.gif&ct=g" style="width: 333px; height: 333px;" class="gif1">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 2px;">
+                        <p class="text-small"> Amazing GIF by</p>
+                        <a class="text-spc1" href="https://www.instagram.com/stopmotreats/" target="_blank">@stopmotreats</a>
+                    </div>
+                </div>
+            </label>           
+
+        </section>
+    </section>
+
+    <br>
+    <br>
+
+
+</body>
+</html>
